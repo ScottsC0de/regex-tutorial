@@ -8,7 +8,7 @@ They describe what is to be accepted in an inputted string
 
 For example, we can use this an Regex to confirm a user's email address exists and follows the criteria of a website's log-in
 
-The tutorial is broken into sections, each of which can be found and linked to in the 'Table of Contents' section
+This tutorial is broken into sections, each of which can be found and linked to in the 'Table of Contents' section
 
 ## Summary
 
@@ -28,11 +28,11 @@ Consider the code snippet here:
 
 This snippet of code describes the email address as a string and indicates what can be included in it for it to be accepted 
 
-Notice how it's actually shaped like an email address; the first part looks like it can accept letters, numbers, and symbols, followed by a typical @ symbol, and then a period
+> Notice how it's actually shaped like an email address; the first part looks like it can accept letters, numbers, and symbols, followed by a typical @ symbol, and then a period
 
 This is a common way to write an email  
 
-Now, let's break down each part in the upcoming sections
+Let's break down each part in the upcoming sections
 
 ## Table of Contents
 
@@ -45,22 +45,19 @@ Now, let's break down each part in the upcoming sections
 
 ## Regex Components
 
-Before we begin with the components of a regex, it's important to note the `/` at the beginning and end of the Regex
-
-The `/` are required to be at the very beginning and end of a regex
+Before we begin with the components of a regex, it is important to note the `/` at the beginning and end of the regex
+> The `/` are required to be at the very beginning and end of a regex
 
 It makes our regex written in what is known as *literal notation*
-**Note**: You can also write a regex as a *constructor*, which uses `""` instead of `/`
+> **Note**: You can also write a regex as a *constructor*, which uses `""` instead of `/`
 
 ### Anchors
 
 We shall begin the breakdown of the Email Verification Regex by reading it from left to right
-
-Notice after the `/` there is a `^`
+> Notice after the `/` there is a `^`
 
 This is known as an *Anchor*
-
-Anchors indicate the **beginning and end of a Regex**
+> Anchors indicate the **beginning and end of a Regex**
 
 With the exception of the `/`, regex will begin with a `^` and end with a `&`
 
@@ -76,22 +73,22 @@ Take Away:
 
 ### Bracket Expressions
 
-If you look after the first Anchor in our regex, you will notice it is followed by `()` and `[]`
+If we look after the first Anchor in our regex, you will notice it is followed by `()` and `[]`
 > We will explain the `()` in the next section
 
-For now, what's inside `[]` in a Regex are known as *Bracket Expressions*, which describe our range of characters
+For now, what's inside `[]` in a regex are known as *Bracket Expressions*, which describe our range of characters
 
 Bracket expressions can contain any of the following characters:
 - letters
 - numbers
 - symbols
-> **Note**: The symbols in our Regex (_\.-) are not written out with a hypen like the letters and numbers. This is because we only want to use those specific symbols
+> **Note**: The symbols in our Regex (_\.-) are not written out with a hypen like the letters and numbers. This is because we want only to use those specific symbols
 
-Our Regex uses 3 seperate bracket expressions. This is because a common email is broken down into 3 parts:
+Our regex uses 3 seperate bracket expressions. This is because a common email is broken down into 3 parts:
 > Consider the following email scott-5902@gmail.com 
-- our email username `[a-z0-9_\.-]` can contain letters, numbers, and the specified symbols (scott-5902)
-- our domain name `[\da-z\.-]` (@gmail)
-- our domain suffix `[a-z\.]` (.com)
+- our email username `[a-z0-9_\.-]` can contain letters, numbers, and the specified symbols *(scott-5902)*
+- our domain name `[\da-z\.-]` *(@gmail)*
+- our domain suffix `[a-z\.]` *(.com)*
 > **Note** the `\` scattered throughout the regex. We will cover those in 'Character Classes and Escapes'
 
 ```js
@@ -108,9 +105,9 @@ We mentioned before our 3 bracket expressions are broken into what characters ar
 
 This is what's known as *Grouping*
 
-**Grouping** is the way a Regex is organized into *subexpressions*, grouped by `()`
+**Grouping** organizes a regex into *subexpressions*, grouped by `()`
 
-**Capturing** is grouping subexpressions into a single unit so they can be accessed seperately
+**Capturing** is grouping these subexpressions into a single unit so they can be accessed seperately
 
 ```js
 Take Away:
@@ -126,29 +123,26 @@ SubEx 3 `([a-z\.])`
 ### Quantifiers
 
 Most regex have a limit on how many times the pattern will attempted to be matched
+> These limits are known as *Quantifiers* 
 
-These limits are known as *Quantifiers* 
-
-**Quantifiers** are written in `{}` at the end of the Regex before the `$`, with the first number indicating the minimum and the second indicating the maximum
+**Quantifiers** are written in `{}` at the end of the regex before the `$`, with the first number indicating the minimum attempts and the second indicating the maximum
 
 ```js
 Take Away:
 
-{2,6} means the minimum match is 2 and the maximum is 6
+{2,6} means the minimum match attempt is 2 and the maximum is 6
 ```
 
 ### Greedy and Lazy Match
 
 Quantifiers are inherently *greedy*, meaning they will try to match the pattern as many times as possible
-
-Look for the `+` sign in our code, written at the end of our first 2 subexpressions
+> Look for the `+` sign in our code, written at the end of our first 2 subexpressions
 
 The `+` sign is what's known as a *repetition* operator, in that it says the character class preceding it can be matched one or more times
 > We go over character classes in the next section
 
 The `+` sign is what makes our quantifiers greedy
-
-In contrast, quantifiers are *lazy* by adding a `?` symbol after it. However, this regex does not include it
+> In contrast, quantifiers are *lazy* by adding a `?` symbol after it. However, this regex does not include it
 
 ### Character Classes and Escapes
 
@@ -157,17 +151,14 @@ We have covered all but two characters in our regex
 - The `\`, a **Character Escape**
 
 Character *Classes* define a set of characters in a string of input
-
-Character *Escapes* change a classes interpretation
+> Character *Escapes* change a classes interpretation
 
 For example, normally, a `.` would indicate our regex matches any character expect the newline character(`/n`)
-
-But, using a Character Escape, the `.` is now interpreted as part of the string in what symbols are accepted
+> Using a Character Escape, the `.` is now interpreted as part of the string in what symbols are accepted
 
 Our `\` appears 4 times, each located before `.`
-
-This escapes each `.` following so they are not taken literally, changing their role from character class to a normal period
+> This escapes each `.` following so they are not taken literally, changing their role from character class to a normal period
 
 ## About The Author
 
-Rookie programmer and tutorial creator with a GitHub repo found here: https://github.com/ScottsC0de
+The author is a developer and tutorial creator with a GitHub repo found here: https://github.com/ScottsC0de
