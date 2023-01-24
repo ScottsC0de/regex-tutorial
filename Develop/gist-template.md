@@ -1,8 +1,12 @@
-# Title (replace with your title)
+# Regex Email Verification Tutorial
 
 Introductory paragraph (replace this with your text)
 
-The following tutorial will be explaining how to use Regex to confirm a user's address.
+The following tutorial will be explaining how to use Regex to confirm a user's address. 
+
+*Regex*, short for 'Regular Expression', is 
+
+The tutorial is broken into sections, each of which can be found in the 'Table of Contents' section.
 
 ## Summary
 
@@ -15,45 +19,58 @@ Snippet of Email Validation Code:
 ```js
 /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 ```
-
+The following sections will explain each part of the code...
 
 ## Table of Contents
 
 - [Anchors](#anchors)
-- [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
-- [Character Classes](#character-classes)
-- [Flags](#flags)
-- [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
+- [Grouping and Capturing](#grouping-and-capturing)
+- [Quantifiers](#quantifiers)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+- [Character Classes](#character-classes)
 
 ## Regex Components
 
+The following sections explain each part of the Regex with code snippets included
+
 ### Anchors
 
-### Quantifiers
+To begin explaining our Regex expression, we can start by looking at what are called the *Anchors*
 
-### OR Operator
+Before that, note the forward / at the beginning and end.
 
-### Character Classes
-
-### Flags
-
-### Grouping and Capturing
+Anchors: ^ and $
 
 ### Bracket Expressions
 
+The brackets indicate the range of characters included in the email. 
+
+[a-z0-9_\.-] [\da-z\.-] [a-z\.] and talk about the plus sign
+
+### Grouping and Capturing
+
+**Grouping** is the way a Regex is organized into *subexpressions*, grouped by ()
+
+([a-z0-9_\.-]+) @ ([\da-z\.-]+) \. ([a-z\.]{2,6})
+
+**Capturing** is grouping into a single unit
+
+### Quantifiers
+
+Sets the character limit
+
+{2,6}
+
 ### Greedy and Lazy Match
 
-### Boundaries
+Quantifiers are inherently *greedy*
 
-### Back-references
+### Character Classes and Escapes
 
-### Look-ahead and Look-behind
+Character *Escapes* are a backslash \ that escapes a character used for Regex commands and instead interprets it as a string. It is a way for it to be rendered not literally. For example, in the email Regex, the backslash escapes the .
+
+Character *Classes* defines a set of characters in a string of input. For example, the . we talked on above matches any character except the newline character (/n)
 
 ## Author
 
